@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
@@ -39,17 +41,17 @@ public class PlayerController : MonoBehaviour
         // looking
         float lookX = Input.GetAxis("Mouse X") * lookSpeed * Time.fixedDeltaTime;
         characterController.transform.rotation = Quaternion.Euler(
-            characterController.transform.rotation.x,
-            characterController.transform.rotation.y + -lookX,
-            characterController.transform.rotation.z
+            characterController.transform.eulerAngles.x,
+            characterController.transform.eulerAngles.y + lookX,
+            characterController.transform.eulerAngles.z
         );
 
         float lookY = Input.GetAxis("Mouse Y") * lookSpeed * Time.fixedDeltaTime;
         lookY = Mathf.Clamp(lookY, -90.0f, 90.0f);
         playerCamera.transform.rotation = Quaternion.Euler(
-            playerCamera.transform.rotation.x + lookY,
-            playerCamera.transform.rotation.y,
-            playerCamera.transform.rotation.z
+            playerCamera.transform.eulerAngles.x + -lookY,
+            playerCamera.transform.eulerAngles.y,
+            playerCamera.transform.eulerAngles.z
         );
     }
 }
