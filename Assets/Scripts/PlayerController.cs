@@ -51,9 +51,11 @@ public class PlayerController : MonoBehaviour
         );
 
         float lookY = Input.GetAxis("Mouse Y") * lookSpeed * Time.fixedDeltaTime;
-        lookY = Mathf.Clamp(lookY, -90.0f, 90.0f);
+        float xRot = playerCamera.transform.eulerAngles.x;
+        xRot = (xRot > 180) ? xRot - 360 : xRot;
+        lookY = Mathf.Clamp(xRot + -lookY, -90.0f, 90.0f);
         playerCamera.transform.rotation = Quaternion.Euler(
-            playerCamera.transform.eulerAngles.x + -lookY,
+            lookY,
             playerCamera.transform.eulerAngles.y,
             playerCamera.transform.eulerAngles.z
         );

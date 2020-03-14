@@ -10,7 +10,6 @@ public class TestInteractable : MonoBehaviour, IInteractable
         float g = Random.Range(0.0f, 1.0f);
         float b = Random.Range(0.0f, 1.0f);
         Color col = new Color(r, g, b);
-        Debug.Log(col);
         GetComponent<MeshRenderer>().material.color = col;
     }
 }
