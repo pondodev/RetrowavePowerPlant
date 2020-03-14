@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed;
     public Camera playerCamera;
 
+    [Header("Controllers")]
+    public UIController uIController;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
 
         Cursor.lockState = CursorLockMode.Locked;
+        uIController.SetCrosshairState(CrosshairState.Enabled);
     }
 
     void FixedUpdate()
@@ -53,5 +57,32 @@ public class PlayerController : MonoBehaviour
             playerCamera.transform.eulerAngles.y,
             playerCamera.transform.eulerAngles.z
         );
+
+        // look for interactable stuff
+        RaycastHit hit;
+        Vector3 origin = playerCamera.transform.position;
+        float length = 2.0f;
+        Vector3 castDirection = playerCamera.transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(origin, castDirection, out hit, length))
+        {
+            IInteractable obj = hit.transform.gameObject.GetComponent<IInteractable>() as IInteractable;
+            if (obj != null)
+            {
+                uIController.SetCrosshairState(CrosshairState.Engaged);
+
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    obj.Interact();
+                }
+            }
+            else
+            {
+                uIController.SetCrosshairState(CrosshairState.Enabled);
+            }
+        }
+        else
+        {
+            uIController.SetCrosshairState(CrosshairState.Enabled);
+        }
     }
 }
