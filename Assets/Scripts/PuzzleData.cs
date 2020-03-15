@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class PuzzleData
+public class PuzzleData : ScriptableObject
 {
-    int width;
-    int height;
-    int[] startTerminalCoord;
-    int[] endTerminalCoord;
-    PuzzlePieceData[,] pieces;
+    public int width;
+    public int height;
+    public int[] startTerminalCoord;
+    public int[] endTerminalCoord;
+    public PuzzlePieceData[] pieces;
 }
