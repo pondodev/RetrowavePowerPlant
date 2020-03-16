@@ -23,5 +23,6 @@ public class PuzzleController : MonoBehaviour, IInteractable
     public void Interact()
     {
         gameController.EngagePuzzle();
+        uIController.InitPuzzle(data);
     }
 }

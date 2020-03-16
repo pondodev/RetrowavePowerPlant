@@ -9,7 +9,11 @@ public class UIController : MonoBehaviour
 
     public Image crosshair;
     public Image outerCrosshair;
-    public Image puzzleScreen;
+    public GameObject puzzleScreen;
+    public RectTransform puzzleContainer;
+    public GameObject puzzlePiece;
+    
+    private List<GameObject> pieces;
 
     private GameController gameController;
 
@@ -51,12 +55,44 @@ public class UIController : MonoBehaviour
 
     public void ShowPuzzleScreen()
     {
-        puzzleScreen.gameObject.SetActive(true);
+        puzzleScreen.SetActive(true);
     }
 
     public void HidePuzzleScreen()
     {
-        puzzleScreen.gameObject.SetActive(false);
+        puzzleScreen.SetActive(false);
         gameController.DisengagePuzzle();
     }
-}
+
+    public void InitPuzzle(PuzzleData data)
+    {
+        int maxSize = 1000;
+        int pieceSize = maxSize / Mathf.Max(data.width, data.height);
+
+        int width = data.width * pieceSize;
+        int height = data.height * pieceSize;
+
+        puzzleContainer.sizeDelta = new Vector2(width, height);
+
+        pieces = new List<GameObject>();
+        int index = 0;
+        for (int i = 0; i < data.height; i++)
+        {
+            for (int j = 0; j < data.width; j++)
+            {
+                GameObject obj = Instantiate(puzzlePiece, puzzleContainer.transform);
+                RectTransform rect = obj.GetComponent<RectTransform>();
+                PuzzlePieceController piece = obj.GetComponent<PuzzlePieceController>();
+
+                rect.sizeDelta = new Vector2(pieceSize * 2, pieceSize * 2);
+                rect.localPosition = new Vector3(0, 0, 0);
+                pieces.Add(obj);
+
+                piece.index = index;
+                piece.data = data.pieces[index];
+
+                index++;
+            }
+        }
+    }
+}   
