@@ -62,6 +62,10 @@ public class UIController : MonoBehaviour
     {
         puzzleScreen.SetActive(false);
         gameController.DisengagePuzzle();
+        foreach (GameObject obj in pieces)
+        {
+            Destroy(obj);
+        }
     }
 
     public void InitPuzzle(PuzzleData data)
@@ -76,6 +80,9 @@ public class UIController : MonoBehaviour
 
         pieces = new List<GameObject>();
         int index = 0;
+        float xPos = pieceSize / 2;
+        float yPos = pieceSize / 2;
+        float scaleFactor = (pieceSize * 2f) / maxSize;
         for (int i = 0; i < data.height; i++)
         {
             for (int j = 0; j < data.width; j++)
@@ -85,14 +92,16 @@ public class UIController : MonoBehaviour
                 PuzzlePieceController piece = obj.GetComponent<PuzzlePieceController>();
 
                 rect.sizeDelta = new Vector2(pieceSize * 2, pieceSize * 2);
-                rect.localPosition = new Vector3(0, 0, 0);
+                rect.localPosition = new Vector3(xPos, yPos, 0);
+                piece.InitPiece(data.pieces[index], index, scaleFactor);
                 pieces.Add(obj);
 
-                piece.index = index;
-                piece.data = data.pieces[index];
-
+                xPos += pieceSize;
                 index++;
             }
+
+            xPos = pieceSize / 2;
+            yPos += pieceSize;
         }
     }
 }   
