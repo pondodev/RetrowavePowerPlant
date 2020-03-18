@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+
+using System.IO;
 using UnityEngine;
 using UnityEditor.Experimental.AssetImporters;
 
@@ -16,3 +18,5 @@ public class PuzzleImporter : ScriptedImporter
         context.SetMainObject(puzzle);
     }
 }
+
+#endif
