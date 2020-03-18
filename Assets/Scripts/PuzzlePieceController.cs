@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PuzzlePieceController : MonoBehaviour
 {
@@ -14,11 +15,13 @@ public class PuzzlePieceController : MonoBehaviour
     public GameObject right;
     public Color unpowered;
     public Color powered;
+    private UnityEvent rotated;
 
-    public void InitPiece(PuzzlePieceData _data, int _index, float scaleFactor)
+    public void InitPiece(PuzzlePieceData _data, int _index, float scaleFactor, UnityEvent _rotatedEvent)
     {
         data = _data;
         index = _index;
+        rotated = _rotatedEvent;
 
         ScaleTheStuff(scaleFactor);
         Draw();
@@ -43,9 +46,10 @@ public class PuzzlePieceController : MonoBehaviour
         if (data.terminal) return; // can't rotate terminals
         data.Rotate();
         Draw();
+        rotated.Invoke();
     }
 
-    private void Draw()
+    public void Draw()
     {
         top.SetActive(data.top);
         bottom.SetActive(data.bottom);

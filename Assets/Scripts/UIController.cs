@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class UIController : MonoBehaviour
     private List<GameObject> pieces;
 
     private GameController gameController;
+    private UnityEvent rotated;
+    private PuzzleController currentPuzzleController;
 
     void Awake()
     {
@@ -30,6 +33,11 @@ public class UIController : MonoBehaviour
         gameController = GameController.instance;
         if (gameController == null)
             throw new System.Exception("No GameController present");
+
+        if (rotated == null)
+            rotated = new UnityEvent();
+        
+        rotated.AddListener(CheckPath);
     }
 
     public void SetCrosshairState(CrosshairState state)
@@ -68,8 +76,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void InitPuzzle(PuzzleData data)
+    public void InitPuzzle(PuzzleData data, PuzzleController _currentController)
     {
+        currentPuzzleController = _currentController;
         int maxSize = 1000;
         int pieceSize = maxSize / Mathf.Max(data.width, data.height);
 
@@ -93,7 +102,7 @@ public class UIController : MonoBehaviour
 
                 rect.sizeDelta = new Vector2(pieceSize * 2, pieceSize * 2);
                 rect.localPosition = new Vector3(xPos, yPos, 0);
-                piece.InitPiece(data.pieces[index], index, scaleFactor);
+                piece.InitPiece(data.pieces[index], index, scaleFactor, rotated);
                 pieces.Add(obj);
 
                 xPos += pieceSize;
@@ -103,5 +112,18 @@ public class UIController : MonoBehaviour
             xPos = pieceSize / 2;
             yPos += pieceSize;
         }
+    }
+
+    public void RedrawPuzzle()
+    {
+        foreach (GameObject piece in pieces)
+        {
+            piece.GetComponent<PuzzlePieceController>().Draw();
+        }
+    }
+
+    private void CheckPath()
+    {
+        bool result = currentPuzzleController.CheckPath();
     }
 }   

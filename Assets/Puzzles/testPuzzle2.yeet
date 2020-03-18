@@ -1,8 +1,8 @@
 {
     "width": 4,
     "height": 4,
-    "startTerminalCoord": [0, 0],
-    "endTerminalCoord": [2, 2],
+    "startTerminalCoord": 0,
+    "endTerminalCoord": 8,
     "pieces": [
         {
             "top": false,
