@@ -15,6 +15,7 @@ public class PuzzlePieceController : MonoBehaviour
     public GameObject right;
     public Color unpowered;
     public Color powered;
+    public Color completed;
     private UnityEvent rotated;
 
     public void InitPiece(PuzzlePieceData _data, int _index, float scaleFactor, UnityEvent _rotatedEvent)
@@ -24,7 +25,8 @@ public class PuzzlePieceController : MonoBehaviour
         rotated = _rotatedEvent;
 
         ScaleTheStuff(scaleFactor);
-        Draw();
+        Draw(false);
+        if (data.terminal) GetComponent<Button>().interactable = false;
     }
 
     private void ScaleTheStuff(float scaleFactor)
@@ -45,36 +47,40 @@ public class PuzzlePieceController : MonoBehaviour
     {
         if (data.terminal) return; // can't rotate terminals
         data.Rotate();
-        Draw();
+        Draw(false);
         rotated.Invoke();
     }
 
-    public void Draw()
+    public void Draw(bool _completed)
     {
         top.SetActive(data.top);
         bottom.SetActive(data.bottom);
         left.SetActive(data.left);
         right.SetActive(data.right);
-        Power(data.powered);
+        Power(_completed);
+        if (_completed) GetComponent<Button>().interactable = false;
     }
 
-    public void Power(bool state)
+    public void Power(bool _completed)
     {
         Color col;
-        if (state)
-            col = powered;
+        if (data.powered)
+            if (_completed)
+                col = completed;
+            else
+                col = powered;
         else
             col = unpowered;
         
-        ApplyColour(center, col);
-        ApplyColour(top, col);
-        ApplyColour(bottom, col);
-        ApplyColour(left, col);
-        ApplyColour(right, col);
+        ApplyColour(col);
     }
 
-    private void ApplyColour(GameObject obj, Color col)
+    private void ApplyColour(Color col)
     {
-        obj.GetComponent<Image>().color = col;
+        center.GetComponent<Image>().color = col;
+        top.GetComponent<Image>().color = col;
+        bottom.GetComponent<Image>().color = col;
+        left.GetComponent<Image>().color = col;
+        right.GetComponent<Image>().color = col;
     }
 }

@@ -476,6 +476,7 @@ MonoBehaviour:
   right: {fileID: 1509483962}
   unpowered: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 1}
   powered: {r: 0, g: 0.9534545, b: 1, a: 1}
+  completed: {r: 0, g: 1, b: 0.32479072, a: 1}
 --- !u!114 &549590854
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,4 +7,5 @@ public class PuzzleData : ScriptableObject
     public int startTerminalCoord;
     public int endTerminalCoord;
     public PuzzlePieceData[] pieces;
+    public bool completed = false;
 }

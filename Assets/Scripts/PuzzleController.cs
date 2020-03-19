@@ -22,6 +22,7 @@ public class PuzzleController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (data.completed) return;
         gameController.EngagePuzzle();
         uIController.InitPuzzle(data, this);
     }
@@ -58,8 +59,10 @@ public class PuzzleController : MonoBehaviour, IInteractable
             if (res != -1) indexes.Enqueue(res);
         }
 
-        uIController.RedrawPuzzle();
-        return data.pieces[data.endTerminalCoord].powered;
+        data.completed = data.pieces[data.endTerminalCoord].powered;
+        uIController.RedrawPuzzle(data.completed);
+        if (data.completed) LockPuzzle();
+        return data.completed;
     }
 
     // all these methods will check if there's anything to power in a direction
@@ -129,6 +132,15 @@ public class PuzzleController : MonoBehaviour, IInteractable
         else
         {
             return -1;
+        }
+    }
+
+    private void LockPuzzle()
+    {
+        foreach (PuzzlePieceData piece in data.pieces)
+        {
+            // lmao so jank but it do be workin
+            piece.terminal = true;
         }
     }
 }

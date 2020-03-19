@@ -114,11 +114,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void RedrawPuzzle()
+    public void RedrawPuzzle(bool completed)
     {
         foreach (GameObject piece in pieces)
         {
-            piece.GetComponent<PuzzlePieceController>().Draw();
+            piece.GetComponent<PuzzlePieceController>().Draw(completed);
         }
     }
 
