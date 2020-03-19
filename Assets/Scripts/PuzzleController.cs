@@ -22,7 +22,12 @@ public class PuzzleController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (data.completed) return;
+        if (data.completed)
+        {
+            uIController.ShowMessage("Breaker box already fixed");
+            return;
+        }
+
         gameController.EngagePuzzle();
         uIController.InitPuzzle(data, this);
     }

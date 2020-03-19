@@ -13,12 +13,15 @@ public class UIController : MonoBehaviour
     public GameObject puzzleScreen;
     public RectTransform puzzleContainer;
     public GameObject puzzlePiece;
+    public Transform messagePoint;
+    public GameObject message;
     
     private List<GameObject> pieces;
 
     private GameController gameController;
     private UnityEvent rotated;
     private PuzzleController currentPuzzleController;
+    private GameObject currentMessage;
 
     void Awake()
     {
@@ -125,5 +128,14 @@ public class UIController : MonoBehaviour
     private void CheckPath()
     {
         bool result = currentPuzzleController.CheckPath();
+    }
+
+    public void ShowMessage(string _message)
+    {
+        if (currentMessage != null) Destroy(currentMessage);
+        GameObject obj = Instantiate(message, messagePoint);
+        currentMessage = obj;
+        MessageController msg = obj.GetComponent<MessageController>();
+        msg.SetMessage(_message);
     }
 }   
