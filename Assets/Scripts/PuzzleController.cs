@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleController : MonoBehaviour, IInteractable
 {
@@ -15,7 +16,6 @@ public class PuzzleController : MonoBehaviour, IInteractable
     public PuzzleController nextPuzzle;
 
     AudioMaster am;
-    WinState winState;
 
     private GameController gameController;
     private UIController uIController;
@@ -39,11 +39,6 @@ public class PuzzleController : MonoBehaviour, IInteractable
         if(am == null)
         {
             throw new System.Exception("No AudioMaster found");
-        }
-        winState = FindObjectOfType<WinState>();
-        if(winState == null)
-        {
-            throw new System.Exception("No WinState found");
         }
     }
 
@@ -107,7 +102,6 @@ public class PuzzleController : MonoBehaviour, IInteractable
             LockPuzzle();
             am.PlayWinSound(); //Look, I did a thing. Plays "You win the puzzle sound" -b
             lightObject.material = lightActive;
-            winState.SolvePuzzle(); //This adds +1 to "puzzles solved" and checks against win state requirements
             foreach (MeshRenderer mr in nextCables)
             {
                 Material[] mats = mr.materials;
@@ -117,7 +111,15 @@ public class PuzzleController : MonoBehaviour, IInteractable
                     mats[1] = poweredCableMaterial;
                 mr.materials = mats;
             }
-            nextPuzzle.ActivatePuzzle();
+            if (nextPuzzle != null)
+            {
+                nextPuzzle.ActivatePuzzle();
+            }
+            else // finished the game
+            {
+                uIController.ShowMessage("congratulation you are wiener");
+                StartCoroutine(lmao());
+            }
         }
         return data.completed;
     }
@@ -205,5 +207,11 @@ public class PuzzleController : MonoBehaviour, IInteractable
     {
         previousSolved = true;
         lightObject.material = lightInactive;
+    }
+
+    private IEnumerator lmao()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadSceneAsync(0);
     }
 }
