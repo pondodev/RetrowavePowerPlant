@@ -11472,7 +11472,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 263c91a25bde8834b944fc6cb0d43004, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -16956,6 +16956,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.017924916
   m_Center: {x: -0.0021347345, y: 0.0012150852, z: -0.0023037656}
+--- !u!1 &891832702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8330990209649248191, guid: aec0c51e754b81d49a604d41f4fca23b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1813896255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &891832703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891832702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eee1104bc6516d498c480633d5698d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlesSovled: 0
+  puzzleCount: 0
 --- !u!1 &893919384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 36d6628bec4f481479e06f6f620d96cd,

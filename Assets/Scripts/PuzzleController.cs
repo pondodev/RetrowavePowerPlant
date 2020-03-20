@@ -13,7 +13,9 @@ public class PuzzleController : MonoBehaviour, IInteractable
     public Material poweredCableMaterial;
     public bool previousSolved;
     public PuzzleController nextPuzzle;
+
     AudioMaster am;
+    WinState winState;
 
     private GameController gameController;
     private UIController uIController;
@@ -37,6 +39,11 @@ public class PuzzleController : MonoBehaviour, IInteractable
         if(am == null)
         {
             throw new System.Exception("No AudioMaster found");
+        }
+        winState = FindObjectOfType<WinState>();
+        if(winState == null)
+        {
+            throw new System.Exception("No WinState found");
         }
     }
 
@@ -100,6 +107,7 @@ public class PuzzleController : MonoBehaviour, IInteractable
             LockPuzzle();
             am.PlayWinSound(); //Look, I did a thing. Plays "You win the puzzle sound" -b
             lightObject.material = lightActive;
+            winState.SolvePuzzle(); //This adds +1 to "puzzles solved" and checks against win state requirements
             foreach (MeshRenderer mr in nextCables)
             {
                 Material[] mats = mr.materials;
