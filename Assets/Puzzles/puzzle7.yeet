@@ -1,0 +1,296 @@
+{
+    "width": 6,
+    "height": 6,
+    "startTerminalCoord": 11,
+    "endTerminalCoord": 19,
+    "pieces": [
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+    ]
+}

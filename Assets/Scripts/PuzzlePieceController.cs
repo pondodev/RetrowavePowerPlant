@@ -35,6 +35,7 @@ public class PuzzlePieceController : MonoBehaviour
         ApplyScaling(bottom, scaleFactor);
         ApplyScaling(left, scaleFactor);
         ApplyScaling(right, scaleFactor);
+        ApplyScaling(center, scaleFactor);
     }
 
     private void ApplyScaling(GameObject obj, float scaleFactor)
