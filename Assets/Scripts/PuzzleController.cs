@@ -13,6 +13,7 @@ public class PuzzleController : MonoBehaviour, IInteractable
     public Material poweredCableMaterial;
     public bool previousSolved;
     public PuzzleController nextPuzzle;
+    AudioMaster am;
 
     private GameController gameController;
     private UIController uIController;
@@ -31,6 +32,12 @@ public class PuzzleController : MonoBehaviour, IInteractable
             lightObject.material = lightInactive;
         else
             lightObject.material = lightOff;
+
+        am = FindObjectOfType<AudioMaster>();
+        if(am == null)
+        {
+            throw new System.Exception("No AudioMaster found");
+        }
     }
 
     public void Interact()
@@ -82,7 +89,7 @@ public class PuzzleController : MonoBehaviour, IInteractable
             res = CheckRight(index);
             if (res != -1) indexes.Enqueue(res);
         }
-
+        am.PlaySwipeSound(); //Look, I did another thing. Plays "you swiped" sound. I hope you used protection. -b
         data.completed = data.pieces[data.endTerminalCoord].powered;
         uIController.RedrawPuzzle(data.completed);
         // everything about this part is jank at this point but look gimme a break aight
@@ -91,6 +98,7 @@ public class PuzzleController : MonoBehaviour, IInteractable
         {
             // if you watch carefully you can see the exact point where i stopped giving a shit
             LockPuzzle();
+            am.PlayWinSound(); //Look, I did a thing. Plays "You win the puzzle sound" -b
             lightObject.material = lightActive;
             foreach (MeshRenderer mr in nextCables)
             {
