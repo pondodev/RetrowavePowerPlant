@@ -1,0 +1,40 @@
+{
+    "width": 2,
+    "height": 2,
+    "startTerminalCoord": 0,
+    "endTerminalCoord": 3,
+    "pieces": [
+        {
+            "top": true,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": true,
+            "terminal": true
+        },
+        {
+            "top": true,
+            "bottom": true,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": true,
+            "bottom": false,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": true
+        }
+    ]
+}

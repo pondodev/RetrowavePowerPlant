@@ -5,6 +5,14 @@ using UnityEngine;
 public class PuzzleController : MonoBehaviour, IInteractable
 {
     public PuzzleData data;
+    public MeshRenderer lightObject;
+    public Material lightOff;
+    public Material lightInactive;
+    public Material lightActive;
+    public MeshRenderer[] nextCables;
+    public Material poweredCableMaterial;
+    public bool previousSolved;
+    public PuzzleController nextPuzzle;
 
     private GameController gameController;
     private UIController uIController;
@@ -18,10 +26,21 @@ public class PuzzleController : MonoBehaviour, IInteractable
         uIController = UIController.instance;
         if (uIController == null)
             throw new System.Exception("No UIController present");
+
+        if (previousSolved)
+            lightObject.material = lightInactive;
+        else
+            lightObject.material = lightOff;
     }
 
     public void Interact()
     {
+        if (!previousSolved)
+        {
+            uIController.ShowMessage("Fix the previous breaker box first");
+            return;
+        }
+
         if (data.completed)
         {
             uIController.ShowMessage("Breaker box already fixed");
@@ -66,7 +85,24 @@ public class PuzzleController : MonoBehaviour, IInteractable
 
         data.completed = data.pieces[data.endTerminalCoord].powered;
         uIController.RedrawPuzzle(data.completed);
-        if (data.completed) LockPuzzle();
+        // everything about this part is jank at this point but look gimme a break aight
+        // ya boi is tired and just wants to play doom eternal yfm
+        if (data.completed)
+        {
+            // if you watch carefully you can see the exact point where i stopped giving a shit
+            LockPuzzle();
+            lightObject.material = lightActive;
+            foreach (MeshRenderer mr in nextCables)
+            {
+                Material[] mats = mr.materials;
+                if (mr.gameObject.name.Contains("Power _Line_End"))
+                    mats[0] = poweredCableMaterial;
+                else
+                    mats[1] = poweredCableMaterial;
+                mr.materials = mats;
+            }
+            nextPuzzle.ActivatePuzzle();
+        }
         return data.completed;
     }
 
@@ -147,5 +183,11 @@ public class PuzzleController : MonoBehaviour, IInteractable
             // lmao so jank but it do be workin
             piece.terminal = true;
         }
+    }
+
+    public void ActivatePuzzle()
+    {
+        previousSolved = true;
+        lightObject.material = lightInactive;
     }
 }

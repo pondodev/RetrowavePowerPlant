@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         uIController.SetCrosshairState(CrosshairState.Enabled);
+
+        uIController.ShowMessage("Find the breaker boxes with yellow lights. Fix them.");
     }
 
     void FixedUpdate()
