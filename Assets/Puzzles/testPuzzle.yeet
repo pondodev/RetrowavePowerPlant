@@ -1,0 +1,80 @@
+{
+    "width": 3,
+    "height": 3,
+    "startTerminalCoord": 0,
+    "endTerminalCoord": 8,
+    "pieces": [
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": true,
+            "powered": true,
+            "terminal": true
+        },
+        {
+            "top": false,
+            "bottom": true,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": true,
+            "bottom": true,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": true,
+            "right": true,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": true,
+            "bottom": true,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": true,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": true,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": true,
+            "right": false,
+            "powered": false,
+            "terminal": true
+        }
+    ]
+}

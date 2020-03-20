@@ -13,12 +13,20 @@ public class PlayerController : MonoBehaviour
     public float lookSpeed;
     public Camera playerCamera;
 
-    [Header("Controllers")]
-    public UIController uIController;
+    private UIController uIController;
+    private GameController gameController;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        uIController = UIController.instance;
+        if (uIController == null)
+            throw new System.Exception("No UIController present");
+
+        gameController = GameController.instance;
+        if (gameController == null)
+            throw new System.Exception("No GameController present");
 
         Cursor.lockState = CursorLockMode.Locked;
         uIController.SetCrosshairState(CrosshairState.Enabled);
@@ -26,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        // don't want to be moving or anything while a puzzle is engaged
+        if (gameController.puzzleEngaged == true) return;
+
         // movement
         // get direction player wants to move in
         Vector3 direction = new Vector3();

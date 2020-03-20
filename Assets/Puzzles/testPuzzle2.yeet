@@ -1,0 +1,136 @@
+{
+    "width": 4,
+    "height": 4,
+    "startTerminalCoord": 0,
+    "endTerminalCoord": 8,
+    "pieces": [
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        },
+        {
+            "top": false,
+            "bottom": false,
+            "left": false,
+            "right": false,
+            "powered": false,
+            "terminal": false
+        }
+    ]
+}
